@@ -33,7 +33,6 @@ public class JacksonConfig {
 		log.info("---------------------ObjectMapper Setting-----------------------");
 		log.info("DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES : " + this.failOnUnknownProperties);
 		log.info("DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL : " + this.readUnknownEnumValuesAsNull);
-		
 		log.info("DeserializationFeature.FAIL_ON_EMPTY_BEANS : " + this.failOnEmptyBeans);
 		log.info("---------------------ObjectMapper Setting-----------------------\n");
 	}

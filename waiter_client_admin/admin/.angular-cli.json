@@ -19,7 +19,12 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "css/styles.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "css/font-awesome/css/font-awesome.min.css",
+        "css/vendors/animate.css/animate.min.css",
+        "css/nprogress/nprogress.css",
+        "css/daterangepicker.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
