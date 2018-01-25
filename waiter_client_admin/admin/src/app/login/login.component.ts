@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'login-component',
@@ -8,11 +9,11 @@ import { Component } from '@angular/core';
 
 export class LoginComponent{
 
-    constructor(){
+    constructor(private loginService :LoginService){
     }
 
     login(){
-      console.log ( "login")
+      this.loginService.loginProcess(null);
     }
     lostPassword(){
       alert('바보')

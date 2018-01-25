@@ -6,6 +6,8 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { CommonService } from './common/common.service';
+import { LoginService } from './login/login.service';
 
 
 @NgModule({
@@ -18,7 +20,7 @@ import { LoginComponent } from './login/login.component';
     HttpModule,
     BrowserModule
   ],
-  providers: [],
+  providers: [CommonService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

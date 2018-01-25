@@ -4,11 +4,13 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve -host 0.0.0.0 -port 80 --disable-host-check ",
+    "start": "ng serve -host 0.0.0.0 -port 80 --disable-host-check --proxy-config proxy.config.dev.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "dev": "ng serve --env=dev  -host 0.0.0.0 --port 80 --disable-host-check  --proxy-config proxy.config.dev.json",
+    "prod": "ng serve --env=prod  -host 0.0.0.0  --port 80  --disable-host-check --no-live-reload  proxy.config.prod.json"
   },
   "private": true,
   "dependencies": {
