@@ -1,25 +1,38 @@
-import { Component } from '@angular/core';
+import { Component , OnInit} from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from './login.service';
+import { User } from '../model/user';
 
 @Component({
   selector: 'login-component',
   templateUrl: './login.component.html',
   styleUrls: ['../../css/custom.css']
 })
-export class LoginComponent{
+export class LoginComponent {
 
-    constructor(private loginService :LoginService){
-    }
+  loginId:string;
+  password:string;
+  user: User = new User();
 
-    login(){
-      this.loginService.loginProcess(null);
-    }
+  constructor(private loginService: LoginService) {
+  }
 
-    lostPassword(){
-      alert('바보')
-    }
+  ngOnInit(){
+    this.user.loginId="hsim"
 
-    createAccount(){
-      console.log ("create User page route")
-    }
+  }
+
+  login() {
+    this.user.loginId ="hsim";
+    this.user.password="1234";
+    this.loginService.loginProcess(this.user);
+  }
+
+  lostPassword() {
+    alert('바보')
+  }
+
+  createAccount() {
+    console.log("create User page route")
+  }
 }

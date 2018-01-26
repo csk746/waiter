@@ -24,7 +24,7 @@ import com.daou.waiter.user.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController 
-@RequestMapping("/user") 
+@RequestMapping("/api/user") 
 @Slf4j
 public class UserController { 
 

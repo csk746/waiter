@@ -1,7 +1,16 @@
 
 export class User{
-    id : string ; 
-    name:string ; 
-    password:string ; 
-    email:string ; 
+
+    id:number;
+    createdAt:string;
+    updatedAt:string;
+
+	name :string;
+	loginId :string;
+	password:string;
+	grade :number;
+	phone:string;
+	email :string;
+
+
 }

@@ -28,6 +28,9 @@ public class SpringSecurityContext extends SecurityContextHolder {
     		getContext().setAuthentication(null);
     		return null ; 
     	}
+    	catch(NullPointerException e){
+    		return null ; 
+    	}
     	
     	if ( accountUser != null) {
     		return this.userService.getUser(accountUser.getId());

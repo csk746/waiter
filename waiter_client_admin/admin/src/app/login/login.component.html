@@ -1,5 +1,4 @@
 
-  <body class="login">
     <div>
       <a class="hiddenanchor" id="signup"></a>
       <a class="hiddenanchor" id="signin"></a>
@@ -10,10 +9,10 @@
             <form>
               <h1>Login Form</h1>
               <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
+                <input type="text" class="form-control" value={{user.loginId}} placeholder="username"  />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
+                <input type="password" class="form-control" placeholder="password"  />
               </div>
               <div>
                 <a class="btn btn-default submit" (click)="login()">Log in</a>
@@ -74,4 +73,3 @@
         </div>
       </div>
     </div>
-  </body>

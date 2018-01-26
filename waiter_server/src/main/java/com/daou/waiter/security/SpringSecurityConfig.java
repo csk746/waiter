@@ -31,7 +31,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER).and()
         .authorizeRequests()
-        .antMatchers("/user/login").permitAll()
       //  .anyRequest().authenticated()
         .anyRequest().permitAll()
 		.and().logout().logoutSuccessUrl("/");

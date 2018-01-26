@@ -10,15 +10,18 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 import com.daou.waiter.interceptor.PageParameterResolver;
 import com.daou.waiter.interceptor.ParameterResolver;
+import com.daou.waiter.interceptor.SecurityInterceptor;
 
 @Configuration
 public class InterceptorConfig extends WebMvcConfigurerAdapter {
 
 	@Autowired ParameterResolver parameterResolver ;
 	@Autowired PageParameterResolver pageParamaeterResolver;
+	@Autowired SecurityInterceptor securityInterceptor;
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
+		//registry.addInterceptor(securityInterceptor);
 	}
 
 	@Override

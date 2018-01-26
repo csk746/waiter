@@ -14,6 +14,10 @@ export class CommonService{
 
         let bodyStr = JSON.stringify(body);
 
+        console.log ( bodyStr)
+
+        url ="http://localhost:8080" + url
+
         return this.http.post(url, bodyStr, options ? options : {} ).toPromise().catch(error => errorHandler(error, this));
     }
 
