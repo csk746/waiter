@@ -17,7 +17,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@Table(name="user", indexes = {@Index(columnList="loginId")})
+@Table(name="watier_user", indexes = {@Index(columnList="loginId")})
 public class User extends BaseEntity {
 	
 	@Column 
