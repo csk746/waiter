@@ -6,7 +6,6 @@ import { LoginService } from './login.service';
   templateUrl: './login.component.html',
   styleUrls: ['../../css/custom.css']
 })
-
 export class LoginComponent{
 
     constructor(private loginService :LoginService){
@@ -15,9 +14,11 @@ export class LoginComponent{
     login(){
       this.loginService.loginProcess(null);
     }
+
     lostPassword(){
       alert('바보')
     }
+
     createAccount(){
       console.log ("create User page route")
     }
