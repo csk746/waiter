@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import * as $ from "jquery";
+import { CommonService } from '../../common/common.service';
+import { User } from '../../model/user';
 
 @Component({
   selector: 'side-menu-component',
@@ -8,12 +10,13 @@ import * as $ from "jquery";
 })
 export class SideMenuComponent implements OnInit{
 
-  constructor() {
+  myInfo:User;
 
+  constructor(private commonService:CommonService) {
   }
 
   ngOnInit(){
-
+    this.myInfo = this.commonService.getValue('myInfo');
   }
 
   toggle(event){

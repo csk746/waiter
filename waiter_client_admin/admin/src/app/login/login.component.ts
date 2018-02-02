@@ -26,8 +26,7 @@ export class LoginComponent {
   login() {
 
     this.loginService.loginProcess(this.user).then( res =>{
-      console.log ( " login res : " )
-      console.log ( res)
+      this.commonService.saveValue('myInfo', res)
       this.commonService.getRouter().navigateByUrl('home')
     });
   }

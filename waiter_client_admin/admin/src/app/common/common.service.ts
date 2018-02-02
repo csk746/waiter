@@ -10,6 +10,8 @@ export class CommonService{
     constructor(private http : HttpClient, private router:Router, private activatedRoute:ActivatedRoute){
     }
 
+    storage:Map<string, any>= new Map();
+
     getUrl(url:string):string{
         let urlStr= '/api/' + url ;
         urlStr.replace("api//", "api/");
@@ -78,5 +80,11 @@ export class CommonService{
         return Promise.reject(error.message || error);
       }
 
+      saveValue(key:string, value:any){
+          this.storage.set(key, value);
+      }
+      getValue(key:string){
+          return this.storage.get(key);
+      }
 
 }
