@@ -10,12 +10,17 @@ import { LoginService } from './login/login.service';
 import {environment} from "../environments/environment";
 import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
 import {InMemoryService} from "./mock/in-memory-service.service";
+import { MainComponent } from './dashboard/index/main.component';
+import { SideMenuComponent } from './dashboard/sidebar/side.menu.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    SideMenuComponent,
+    MainComponent
+
   ],
   imports: [
     AppRoutingModule,

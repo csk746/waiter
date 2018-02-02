@@ -10,17 +10,21 @@ export class CommonService{
     constructor(private http : HttpClient, private router:Router, private activatedRoute:ActivatedRoute){
     }
 
+    initUrl(url:string):string{
+        let urlStr= '/api/' + url ;
+        urlStr.replace("api//", "api/");
+        return urlStr;
+    }
+
     post(url:string, body:any, options: any, errorHandler:any){
-        url = '/api/' + url ;
-        url = url.replace("api//", "api/");
+
+        url = this.initUrl(url);
 
         let bodyStr = JSON.stringify(body);
 
         console.log ( bodyStr)
 
-        let header = this.getDefaultHeader();
-
-        return this.http.post(url, bodyStr, {headers: header } ).toPromise().catch(error => errorHandler(error, this));
+        return this.http.post(url, bodyStr, this.getOptions(options)).toPromise().catch(error => errorHandler(error, this));
     }
 
     getEnv(){
@@ -39,9 +43,13 @@ export class CommonService{
         return this.activatedRoute;
     }
 
-    getDefaultHeader():HttpHeaders{
-        return new HttpHeaders({ 'Content-Type': 'application/json' });
+    getOptions(options:any){
+        return options != null ? options : this.getDefaultOption() 
     }
 
+    getDefaultOption():any{
+        let header = new HttpHeaders({ 'Content-Type': 'application/json' });
+        return { headers:header}
+    }
 
 }
