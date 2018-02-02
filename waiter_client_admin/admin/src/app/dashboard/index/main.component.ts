@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   selector: 'main.component',
   templateUrl: './main.component.html',
   styleUrls: [
-    '../../../css/custom.css', 
+    '../../../resource/custom.css', 
   ]
 })
 export class MainComponent {

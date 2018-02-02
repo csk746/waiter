@@ -6,11 +6,11 @@ import { ActivatedRoute, Params, Router } from "@angular/router";
   selector: 'side-menu-component',
   templateUrl: './side.menu.component.html',
   styleUrls: [
-    '../../../css/vendors/iCheck/skins/flat/green.css',
-    '../../../css/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css',
-    '../../../css/vendors/jqvmap/dist/jqvmap.min.css',
-    '../../../css/vendors/bootstrap-daterangepicker/daterangepicker.css',
-    '../../../css/custom.css', 
+    '../../../resource/vendors/iCheck/skins/flat/green.css',
+    '../../../resource/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css',
+    '../../../resource/vendors/jqvmap/dist/jqvmap.min.css',
+    '../../../resource/vendors/bootstrap-daterangepicker/daterangepicker.css',
+    '../../../resource/custom.css', 
   ]
 })
 export class SideMenuComponent {

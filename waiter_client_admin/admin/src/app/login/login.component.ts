@@ -7,7 +7,7 @@ import { CommonService } from '../common/common.service';
 @Component({
   selector: 'login-component',
   templateUrl: './login.component.html',
-  styleUrls: ['../../css/custom.css']
+  styleUrls: ['../../resource/custom.css']
 })
 export class LoginComponent {
 
