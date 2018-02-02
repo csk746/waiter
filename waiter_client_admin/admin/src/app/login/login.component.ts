@@ -24,7 +24,7 @@ export class LoginComponent {
   }
 
   login() {
-    console.log ( this.user.loginId)
+
     this.loginService.loginProcess(this.user).then( res =>{
       console.log ( " login res : " )
       console.log ( res)

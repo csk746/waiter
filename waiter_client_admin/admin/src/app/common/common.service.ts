@@ -10,21 +10,38 @@ export class CommonService{
     constructor(private http : HttpClient, private router:Router, private activatedRoute:ActivatedRoute){
     }
 
-    initUrl(url:string):string{
+    getUrl(url:string):string{
         let urlStr= '/api/' + url ;
         urlStr.replace("api//", "api/");
         return urlStr;
     }
 
-    post(url:string, body:any, options: any, errorHandler:any){
-
-        url = this.initUrl(url);
-
+    getBodyStr(body:any):string{
+        if ( !body ) return null ; 
         let bodyStr = JSON.stringify(body);
+        console.log ( " requestBody : " + bodyStr);
+        return bodyStr ;
+    }
 
-        console.log ( bodyStr)
+    post(url:string, body:any, options: any, errorHandler:any){
+        if ( !errorHandler) errorHandler = this.defaultErrorHandler;
 
-        return this.http.post(url, bodyStr, this.getOptions(options)).toPromise().catch(error => errorHandler(error, this));
+        return this.http.post(this.getUrl(url), this.getBodyStr(body), this.getOptions(options)).toPromise().catch(error => errorHandler(error, this));
+    }
+    put(url:string, body:any, options: any, errorHandler:any){
+        if ( !errorHandler) errorHandler = this.defaultErrorHandler;
+
+        return this.http.put(this.getUrl(url), this.getBodyStr(body), this.getOptions(options)).toPromise().catch(error => errorHandler(error, this));
+    }
+    delete(url:string, options: any, errorHandler:any){
+        if ( !errorHandler) errorHandler = this.defaultErrorHandler;
+
+        return this.http.delete(this.getUrl(url), this.getOptions(options)).toPromise().catch(error => errorHandler(error, this));
+    }
+    get(url:string, options: any, errorHandler:any){
+        if ( !errorHandler) errorHandler = this.defaultErrorHandler;
+
+        return this.http.get(this.getUrl(url), this.getOptions(options)).toPromise().catch(error => errorHandler(error, this));
     }
 
     getEnv(){
@@ -51,5 +68,15 @@ export class CommonService{
         let header = new HttpHeaders({ 'Content-Type': 'application/json' });
         return { headers:header}
     }
+    
+    defaultErrorHandler(error: any, that: any) {
+        switch (error.status) {
+          default:
+            alert("statusCode : " + error.status)
+            break;
+        }
+        return Promise.reject(error.message || error);
+      }
+
 
 }
