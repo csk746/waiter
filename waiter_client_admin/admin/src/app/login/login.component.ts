@@ -15,6 +15,8 @@ export class LoginComponent {
   password:string;
   user: User = new User();
 
+  idCheck=true;
+
   constructor(private loginService: LoginService, private commonService:CommonService) {
   }
 
@@ -33,6 +35,11 @@ export class LoginComponent {
 
   lostPassword() {
     alert('바보')
+  }
+
+  changeId(){
+    this.idCheck = !this.idCheck;
+    console.log ( "changeId" + this.idCheck)
   }
 
   createAccount() {

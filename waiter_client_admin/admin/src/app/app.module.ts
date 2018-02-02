@@ -21,6 +21,7 @@ import { SideMenuComponent } from './dashboard/sidebar/side.menu.component';
     SideMenuComponent,
     MainComponent
 
+
   ],
   imports: [
     AppRoutingModule,

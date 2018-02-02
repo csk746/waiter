@@ -40,14 +40,25 @@
             <form>
               <h1>Create Account</h1>
               <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
+                <input type="text" class="form-control" (ngModelChange)="changeId()" [(ngModel)]="user.loginId" name="userLoginId" placeholder="Id" ng-required="idCheck" />
+              </div>
+
+              <div>
+                <input type="password" class="form-control" [(ngModel)]="user.password" name="userPassword" placeholder="Password" required="" />
+              </div>
+
+              <div>
+                <input type="email" class="form-control" [(ngModel)]="user.email" name="userEmail" placeholder="Email" required="" />
               </div>
               <div>
-                <input type="email" class="form-control" placeholder="Email" required="" />
+                <input type="text" class="form-control" [(ngModel)]="user.name" name="userName" placeholder="userName" required="" />
               </div>
+
               <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
+                <input type="text" class="form-control" [(ngModel)]="user.phone" name="userPhone" placeholder="PhoneNumber" required="" />
               </div>
+
+
               <div>
                 <a class="btn btn-default submit" (click)="createAccount()">Submit</a>
               </div>
