@@ -15,7 +15,11 @@ export class InMemoryService implements InMemoryDbService{
   }
 
   private makeUserTableAndDummyData(){
-    var users  = [{id : 1, loginId: "sopark", password: "1234"}];
+    var users = [
+      { id: 1, loginId: "sopark", password: "1234" },
+      { id: 2, loginId: "hsim", password: "1234" }
+    ];
+
     this.createTable("user", users);
 
     var products  = [{id : 1, name : "중국집"}];

@@ -18,13 +18,10 @@ export class LoginComponent {
   }
 
   ngOnInit(){
-    this.user.loginId="hsim"
-
   }
 
   login() {
-    this.user.loginId ="hsim";
-    this.user.password="1234";
+    console.log ( this.user.loginId)
     this.loginService.loginProcess(this.user);
   }
 

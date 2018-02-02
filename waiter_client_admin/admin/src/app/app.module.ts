@@ -1,6 +1,7 @@
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -20,7 +21,8 @@ import {InMemoryService} from "./mock/in-memory-service.service";
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
-    environment.production ? [] : HttpClientInMemoryWebApiModule.forRoot(InMemoryService, { dataEncapsulation: false })
+    FormsModule,
+    //environment.production ? [] : HttpClientInMemoryWebApiModule.forRoot(InMemoryService, { dataEncapsulation: false })
   ],
   providers: [CommonService, LoginService],
   bootstrap: [AppComponent]

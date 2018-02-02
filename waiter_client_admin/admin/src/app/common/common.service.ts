@@ -1,7 +1,9 @@
 import { Injectable } from "@angular/core";
 import { environment } from '../../environments/environment';
-import { HttpClient} from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Headers } from "@angular/http/src/headers";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 @Injectable()
 export class CommonService{
@@ -16,9 +18,9 @@ export class CommonService{
 
         console.log ( bodyStr)
 
-        url ="http://localhost:8080" + url
+        let header = this.getDefaultHeader();
 
-        return this.http.post(url, bodyStr, options ? options : {} ).toPromise().catch(error => errorHandler(error, this));
+        return this.http.post(url, bodyStr, {headers: header } ).toPromise().catch(error => errorHandler(error, this));
     }
 
     getEnv(){
@@ -37,8 +39,8 @@ export class CommonService{
         return this.activatedRoute;
     }
 
-    getDefaultHeader():Headers{
-        return new Headers({ 'Content-Type': 'application/json' });
+    getDefaultHeader():HttpHeaders{
+        return new HttpHeaders({ 'Content-Type': 'application/json' });
     }
 
 

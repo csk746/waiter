@@ -9,10 +9,10 @@
             <form>
               <h1>Login Form</h1>
               <div>
-                <input type="text" class="form-control" value={{user.loginId}} placeholder="username"  />
+                <input type="text" class="form-control" [(ngModel)]="user.loginId" name="loginId" placeholder="username"  />
               </div>
               <div>
-                <input type="password" class="form-control" placeholder="password"  />
+                <input type="password" class="form-control" [(ngModel)]="user.password" name="password" placeholder="password"  />
               </div>
               <div>
                 <a class="btn btn-default submit" (click)="login()">Log in</a>
