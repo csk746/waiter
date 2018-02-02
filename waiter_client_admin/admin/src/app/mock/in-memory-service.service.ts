@@ -20,7 +20,7 @@ export class InMemoryService implements InMemoryDbService{
       { id: 2, loginId: "hsim", password: "1234" }
     ];
 
-    this.createTable("user", users);
+    this.createTable("user/login", users);
 
     var products  = [{id : 1, name : "중국집"}];
     this.createTable("product", products);
