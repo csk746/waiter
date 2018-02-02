@@ -24,10 +24,13 @@
         "resource/font-awesome/css/font-awesome.min.css",
         "resource/vendors/animate.css/animate.min.css",
         "resource/nprogress/nprogress.css",
-        "resource/daterangepicker.css"
+        "resource/daterangepicker.css",
+        "resource/vendors/iCheck/skins/flat/green.css",
+        "resource/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css",
+        "resource/vendors/jqvmap/dist/jqvmap.min.css",
+        "resource/vendors/bootstrap-daterangepicker/daterangepicker.css"
       ],
       "scripts": [
-        "resource/custom.min.js",
         "resource/vendors/jquery/dist/jquery.min.js",
         "resource/vendors/bootstrap/dist/js/bootstrap.min.js",
         "resource/vendors/fastclick/lib/fastclick.js",
@@ -36,6 +39,7 @@
         "resource/vendors/gauge.js/dist/gauge.min.js",
         "resource/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js",
         "resource/vendors/iCheck/icheck.min.js",
+        "resource/vendors/DateJs/date.js",
         "resource/vendors/skycons/skycons.js",
         "resource/vendors/Flot/jquery.flot.js",
         "resource/vendors/Flot/jquery.flot.pie.js",
@@ -49,7 +53,8 @@
         "resource/vendors/jqvmap/dist/maps/jquery.vmap.world.js",
         "resource/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js",
         "resource/vendors/moment/min/moment.min.js",
-        "resource/vendors/bootstrap-daterangepicker/daterangepicker.js"
+        "resource/vendors/bootstrap-daterangepicker/daterangepicker.js",
+        "resource/custom.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
