@@ -54,6 +54,9 @@
         "resource/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js",
         "resource/vendors/moment/min/moment.min.js",
         "resource/vendors/bootstrap-daterangepicker/daterangepicker.js",
+        "resource/vendors/fastclick/lib/fastclick.js",
+        "resource/vendors/nprogress/nprogress.js",
+        "resource/vendors/validator/validator.js",
         "resource/custom.min.js"
       ],
       "environmentSource": "environments/environment.ts",

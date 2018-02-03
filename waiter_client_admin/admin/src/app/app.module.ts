@@ -12,12 +12,15 @@ import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
 import {InMemoryService} from "./mock/in-memory-service.service";
 import { MainComponent } from './dashboard/index/main.component';
 import { SideMenuComponent } from './dashboard/sidebar/side.menu.component';
+import { JoinComponent } from './login/join/join.component';
+import { JoinService } from './login/join/join.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    JoinComponent,
     SideMenuComponent,
     MainComponent
 
@@ -30,7 +33,7 @@ import { SideMenuComponent } from './dashboard/sidebar/side.menu.component';
     FormsModule,
     //environment.production ? [] : HttpClientInMemoryWebApiModule.forRoot(InMemoryService, { dataEncapsulation: false })
   ],
-  providers: [CommonService, LoginService],
+  providers: [CommonService, LoginService, JoinService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

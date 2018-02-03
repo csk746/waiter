@@ -8,9 +8,13 @@ export class User{
 	name :string;
 	loginId :string;
 	password:string;
-	grade :number;
 	phone:string;
 	email :string;
+	gender:string;
+
+	address:string ; 
+	shopName:string;
 
 
+	grade :number;
 }

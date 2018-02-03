@@ -25,24 +25,38 @@ export class CommonService{
         return bodyStr ;
     }
 
-    post(url:string, body:any, options: any, errorHandler:any){
+    post(url:string, body:any){
+        return this.postWithOption(url, body, null , null);
+    }
+
+    postWithOption(url:string, body:any, options: any, errorHandler:any){
         if ( !errorHandler) errorHandler = this.defaultErrorHandler;
 
         return this.http.post(this.getUrl(url), this.getBodyStr(body), this.getOptions(options)).toPromise().catch(error => errorHandler(error, this));
     }
-    put(url:string, body:any, options: any, errorHandler:any){
+
+    put(url:string, body:any){
+        return this.putWithOption(url, body, null, null);
+    }
+    putWithOption(url:string, body:any, options: any, errorHandler:any){
         if ( !errorHandler) errorHandler = this.defaultErrorHandler;
 
         return this.http.put(this.getUrl(url), this.getBodyStr(body), this.getOptions(options)).toPromise().catch(error => errorHandler(error, this));
     }
-    delete(url:string, options: any, errorHandler:any){
+
+    delete(url:string){
+        this.deleteWithOption(url, null, null);
+    }
+    deleteWithOption(url:string, options: any, errorHandler:any){
         if ( !errorHandler) errorHandler = this.defaultErrorHandler;
 
         return this.http.delete(this.getUrl(url), this.getOptions(options)).toPromise().catch(error => errorHandler(error, this));
     }
-    get(url:string, options: any, errorHandler:any){
+    get(url:string){
+        return this.getWithOption(url, null, null);
+    }
+    getWithOption(url:string, options: any, errorHandler:any){
         if ( !errorHandler) errorHandler = this.defaultErrorHandler;
-
         return this.http.get(this.getUrl(url), this.getOptions(options)).toPromise().catch(error => errorHandler(error, this));
     }
 
@@ -67,8 +81,12 @@ export class CommonService{
     }
 
     getDefaultOption():any{
+        return { headers:this.getDefaultHeader()}
+    }
+    getDefaultHeader(){
         let header = new HttpHeaders({ 'Content-Type': 'application/json' });
-        return { headers:header}
+
+        return header ;
     }
     
     defaultErrorHandler(error: any, that: any) {

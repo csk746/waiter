@@ -33,16 +33,5 @@ export class LoginComponent {
     });
   }
 
-  lostPassword() {
-    alert('바보')
-  }
-
-  changeId(){
-    this.idCheck = !this.idCheck;
-    console.log ( "changeId" + this.idCheck)
-  }
-
-  createAccount() {
-    console.log("create User page route")
-  }
+ 
 }

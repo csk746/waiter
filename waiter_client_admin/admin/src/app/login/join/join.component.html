@@ -1,0 +1,135 @@
+<div class="join-content">
+  <div class="col-md-8 col-sm-8 col-xs-8">
+
+    <!-- page content -->
+    <div class="center-margin " role="main">
+      <div class="">
+
+        <div class="clearfix"></div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+
+            <div class="join-content">
+              <h3>회원가입</h3>
+            </div>
+            <br/> <br/> <br/> 
+
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="x_content">
+            <br />
+            <form id="join-form" data-parsley-validate class="form-horizontal form-label-left" #joinForm="ngForm">
+
+              <div class="item form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="loginId">ID
+                  <span class="required">*</span>
+                </label>
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                  <input id="loginId" class="form-control col-md-7 col-xs-12" (ngModelChange)="validationId($event)" [(ngModel)]="user.loginId" data-validate-length-range="2" data-validate-words="1" name="loginId"
+                     required="required" type="text">
+                </div>
+                <label *ngIf="user.loginId != null && !idCheck" class="control-label col-md-3 col-sm-3 col-xs-12" style="color: rgb(233, 144, 144)">동일한 ID가 존재합니다.</label>
+                <label *ngIf="user.loginId != null && idCheck" class="control-label col-md-3 col-sm-3 col-xs-12" style="color: rgb(144, 233, 151)">사용 가능한 ID입니다.</label>
+
+              </div>
+
+              <div class="item form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">이름
+                  <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input id="name" class="form-control col-md-7 col-xs-12"  [(ngModel)]="user.name" data-validate-length-range="2" data-validate-words="1" name="name"
+                     required="required" type="text">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12">성별
+                  <span class="required">*</span>
+                </label>
+
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <div id="gender" class="btn-group" data-toggle="buttons">
+                     <button type="radio" (click)="setGender('MALE')" class={{getMaleButtonClassName()}} > 남자  </button>
+                     <button type="radio" (click)="setGender('FEMALE')" class={{getFemaleButtonClassName()}} >여자 </button>
+                  </div>
+                </div>
+              </div>
+           <div class="item form-group">
+                <label for="password" class="control-label col-md-3">패스워드
+                  <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input id="password" type="password" name="password"  [(ngModel)]="user.password" data-validate-length="6,8" class="form-control col-md-7 col-xs-12" required="required">
+                </div>
+              </div>
+              <div class="item form-group">
+                <label for="password2" class="control-label col-md-3 col-sm-3 col-xs-12">패스워드 확인
+                  <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input id="password2" type="password" name="password2" data-validate-linked="password" class="form-control col-md-7 col-xs-12"
+                    required="required">
+                </div>
+              </div>
+
+              <div class="item form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email
+                  <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="email" id="email" name="email" required="required"  [(ngModel)]="user.email" class="form-control col-md-7 col-xs-12">
+                </div>
+              </div>
+    
+              <div class="item form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">매장 이름
+                  <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="text" id="shop-name" name="shop-name" required="required"  [(ngModel)]="user.shopName" class="form-control col-md-7 col-xs-12">
+                </div>
+              </div>
+  
+              <div class="item form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">매장 주소
+                  <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="text" id="address" name="address"  [(ngModel)]="user.address" required="required" class="form-control col-md-7 col-xs-12">
+                </div>
+              </div>
+ 
+
+   
+              <div class="item form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">연락처
+                  <span class="required">*</span>
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="tel" id="telephone" name="phone"  [(ngModel)]="user.phone" required="required" data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12">
+                </div>
+              </div>
+
+
+     
+              <div class="ln_solid"></div>
+
+              <p class="change_link">이미 가입된 아이디가 있나요?
+                <a [routerLink]="['/login']"> 로그인 </a>
+              </p>
+
+              <div class="form-group">
+                <div class="col-md-8 col-sm-8 col-xs-12 col-md-offset-5">
+                  <button type="submit"  [disabled]="joinForm.form.invalid" (click)="join()" class="btn btn-success">Submit</button>
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>

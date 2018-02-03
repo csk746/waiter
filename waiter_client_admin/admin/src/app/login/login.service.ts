@@ -10,7 +10,7 @@ export class LoginService{
     }
 
     loginProcess(user:User){
-        return this.commonService.post("user/login", user, null, this.loginErrorHandler);
+        return this.commonService.postWithOption("user/login", user, null, this.loginErrorHandler);
     }
 
     loginErrorHandler(error: any, that: any) {
