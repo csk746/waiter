@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+
 @Getter
 @Setter
 
@@ -52,7 +53,7 @@ public class SMS {
     private String destPhone;
 
     /**
-     *  받는 사람 이름
+     * 받는 사람 이름
      */
     private String destName;
 

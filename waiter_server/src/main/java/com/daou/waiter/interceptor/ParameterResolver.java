@@ -29,6 +29,6 @@ public class ParameterResolver implements HandlerMethodArgumentResolver {
                                   NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
         // TODO Auto-generated method stub
 
-        return ParameterMapper.RequestParamaterToObject(webRequest, parameter.getParameterType(), parameter.getParameterAnnotation(ParamMapping.class).charset());
+        return ParameterMapper.requestParamaterToObject(webRequest, parameter.getParameterType(), parameter.getParameterAnnotation(ParamMapping.class).charset());
     }
 }

@@ -9,17 +9,19 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class ReceiverModel {
+    String receiverName;
+    String receiverNumber;
+
     public ReceiverModel(String receiverName, String receiverNumber) {
         super();
         this.receiverName = receiverName;
         this.receiverNumber = receiverNumber;
     }
 
-    String receiverName ;
-    String receiverNumber;
-
-    public void setReceiverNumber(String receiverNumber){
-        if ( receiverNumber == null) return ;
+    public void setReceiverNumber(String receiverNumber) {
+        if (receiverNumber == null) {
+            return;
+        }
         this.receiverNumber = receiverNumber.replaceAll("-", "");
     }
 }
