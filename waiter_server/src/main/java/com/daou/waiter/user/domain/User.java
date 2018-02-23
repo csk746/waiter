@@ -17,25 +17,25 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@Table(name="watier_user", indexes = {@Index(columnList="loginId")})
+@Table(name = "watier_user", indexes = {@Index(columnList = "loginId")})
 public class User extends BaseEntity {
-	
-	@Column 
-	String name ; 
-	
-	@Column 
-	String loginId ; 
-	
-	@Column 
-	String password ;
-	
-	@Column 
-	int grade ; 
-	
-	@Column 
-	String phone; 
-	
-	@Column 
-	String email ; 
-	
+
+    @Column
+    String name;
+
+    @Column
+    String loginId;
+
+    @Column
+    String password;
+
+    @Column
+    int grade;
+
+    @Column
+    String phone;
+
+    @Column
+    String email;
+
 }

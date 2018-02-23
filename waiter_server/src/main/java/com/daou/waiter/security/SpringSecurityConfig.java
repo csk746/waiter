@@ -19,35 +19,35 @@ import com.daou.waiter.security.account.AccountUserDetailsService;
 @EnableWebSecurity
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
-	@Autowired
-	private ShaPasswordEncoder passwordEncoder;
-	
-	@Autowired 
-	private AccountUserDetailsService userDetailsService ; 
+    @Autowired
+    private ShaPasswordEncoder passwordEncoder;
 
-	
+    @Autowired
+    private AccountUserDetailsService userDetailsService;
+
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
-		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER).and()
-        .authorizeRequests()
-      //  .anyRequest().authenticated()
-        .anyRequest().permitAll()
-		.and().logout().logoutSuccessUrl("/");
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER).and()
+                .authorizeRequests()
+                //  .anyRequest().authenticated()
+                .anyRequest().permitAll()
+                .and().logout().logoutSuccessUrl("/");
 
-        
+
     }
-    
-	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
-	}
-	
-	@Bean
-	@Override
-	public AuthenticationManager authenticationManagerBean() throws Exception {
-		return super.authenticationManagerBean();
-	}
+
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
+    }
+
+    @Bean
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
 
 
 }

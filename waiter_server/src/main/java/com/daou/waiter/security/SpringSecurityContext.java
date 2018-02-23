@@ -12,32 +12,33 @@ import com.daou.waiter.user.domain.User;
 @Component
 public class SpringSecurityContext extends SecurityContextHolder {
 
-	
-	@Autowired private UserService userService ;
+
+    @Autowired
+    private UserService userService;
+
     public Authentication getAuthentication() {
         return getContext().getAuthentication();
     }
 
     public User getUser() {
-    	
-    	AccountUserDetails accountUser = null ; 
-    			
-    	try{
-    		accountUser = (AccountUserDetails) getContext().getAuthentication().getPrincipal();
-    	}catch(ClassCastException e){
-    		getContext().setAuthentication(null);
-    		return null ; 
-    	}
-    	catch(NullPointerException e){
-    		return null ; 
-    	}
-    	
-    	if ( accountUser != null) {
-    		return this.userService.getUser(accountUser.getId());
-    		
-    	}
-    	
-    	return null ; 
+
+        AccountUserDetails accountUser = null;
+
+        try {
+            accountUser = (AccountUserDetails) getContext().getAuthentication().getPrincipal();
+        } catch (ClassCastException e) {
+            getContext().setAuthentication(null);
+            return null;
+        } catch (NullPointerException e) {
+            return null;
+        }
+
+        if (accountUser != null) {
+            return this.userService.getUser(accountUser.getId());
+
+        }
+
+        return null;
     }
-  
+
 }

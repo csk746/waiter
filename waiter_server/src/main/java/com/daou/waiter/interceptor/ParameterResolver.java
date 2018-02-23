@@ -13,23 +13,23 @@ import com.daou.waiter.util.ParameterMapper;
 @Component
 public class ParameterResolver implements HandlerMethodArgumentResolver {
 
-	/* (non-Javadoc)
-	 * @see org.springframework.web.method.support.HandlerMethodArgumentResolver#supportsParameter(org.springframework.core.MethodParameter)
-	 */
-	@Override
-	public boolean supportsParameter(MethodParameter parameter) {
-		// TODO Auto-generated method stub
-		return parameter.getParameterAnnotation(ParamMapping.class) != null ; 
-	}
+    /* (non-Javadoc)
+     * @see org.springframework.web.method.support.HandlerMethodArgumentResolver#supportsParameter(org.springframework.core.MethodParameter)
+     */
+    @Override
+    public boolean supportsParameter(MethodParameter parameter) {
+        // TODO Auto-generated method stub
+        return parameter.getParameterAnnotation(ParamMapping.class) != null;
+    }
 
-	/* (non-Javadoc)
-	 * @see org.springframework.web.method.support.HandlerMethodArgumentResolver#resolveArgument(org.springframework.core.MethodParameter, org.springframework.web.method.support.ModelAndViewContainer, org.springframework.web.context.request.NativeWebRequest, org.springframework.web.bind.support.WebDataBinderFactory)
-	 */
-	@Override
-	public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer,
-			NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
-		// TODO Auto-generated method stub
-		
+    /* (non-Javadoc)
+     * @see org.springframework.web.method.support.HandlerMethodArgumentResolver#resolveArgument(org.springframework.core.MethodParameter, org.springframework.web.method.support.ModelAndViewContainer, org.springframework.web.context.request.NativeWebRequest, org.springframework.web.bind.support.WebDataBinderFactory)
+     */
+    @Override
+    public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer,
+                                  NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
+        // TODO Auto-generated method stub
+
         return ParameterMapper.RequestParamaterToObject(webRequest, parameter.getParameterType(), parameter.getParameterAnnotation(ParamMapping.class).charset());
-	}
+    }
 }

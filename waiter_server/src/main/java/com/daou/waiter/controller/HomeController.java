@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.daou.waiter.controller;
 
@@ -15,13 +15,13 @@ import lombok.extern.slf4j.Slf4j;
 /**
  */
 @RequestMapping("/")
-@RestController 
+@RestController
 @Slf4j
 public class HomeController {
 
-	@RequestMapping("/**")
-	public void homeRequest( HttpMethod method, HttpServletRequest request, HttpServletResponse response) {
+    @RequestMapping("/**")
+    public void homeRequest(HttpMethod method, HttpServletRequest request, HttpServletResponse response) {
 
-	}
-	
+    }
+
 }

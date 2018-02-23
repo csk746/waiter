@@ -15,22 +15,25 @@ import com.daou.waiter.interceptor.SecurityInterceptor;
 @Configuration
 public class InterceptorConfig extends WebMvcConfigurerAdapter {
 
-	@Autowired ParameterResolver parameterResolver ;
-	@Autowired PageParameterResolver pageParamaeterResolver;
-	@Autowired SecurityInterceptor securityInterceptor;
+    @Autowired
+    ParameterResolver parameterResolver;
+    @Autowired
+    PageParameterResolver pageParamaeterResolver;
+    @Autowired
+    SecurityInterceptor securityInterceptor;
 
-	@Override
-	public void addInterceptors(InterceptorRegistry registry) {
-		//registry.addInterceptor(securityInterceptor);
-	}
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        //registry.addInterceptor(securityInterceptor);
+    }
 
-	@Override
-	public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
-		// TODO Auto-generated method stub
-		argumentResolvers.add(parameterResolver);
-		argumentResolvers.add(pageParamaeterResolver);
+    @Override
+    public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
+        // TODO Auto-generated method stub
+        argumentResolvers.add(parameterResolver);
+        argumentResolvers.add(pageParamaeterResolver);
 
-	}
+    }
 
 
 }

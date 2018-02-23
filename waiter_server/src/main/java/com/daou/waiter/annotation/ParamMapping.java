@@ -6,13 +6,13 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
- 
+
 @Target(ElementType.PARAMETER)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface ParamMapping {
-	
-	boolean required() default true;
-	
-	String charset()  default "UTF-8"; 
+
+    boolean required() default true;
+
+    String charset() default "UTF-8";
 }

@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.daou.waiter.model;
 
@@ -14,16 +14,16 @@ import lombok.Setter;
 @Setter
 public class PageModel {
 
-	private int size = 15; 
-	private int page = 0 ; 
-	private String field = "createdAt"; 
-	private String order = "desc"; 
-	
-	public void setOffset(int offset){
-		this.size = offset ; 
-	}
-	
-	public void setOffSet(int offset){
-		this.size = offset ; 
-	}
+    private int size = 15;
+    private int page = 0;
+    private String field = "createdAt";
+    private String order = "desc";
+
+    public void setOffset(int offset) {
+        this.size = offset;
+    }
+
+    public void setOffSet(int offset) {
+        this.size = offset;
+    }
 }

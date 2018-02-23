@@ -16,26 +16,26 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class JacksonConfig {
 
-	private final boolean failOnUnknownProperties = false ; 
-	private final boolean readUnknownEnumValuesAsNull = true ; 
-	private final boolean failOnEmptyBeans = false ; 
-	
-	@Autowired
-	public void settingToObjectMapper (ObjectMapper mapper ){
+    private final boolean failOnUnknownProperties = false;
+    private final boolean readUnknownEnumValuesAsNull = true;
+    private final boolean failOnEmptyBeans = false;
+
+    @Autowired
+    public void settingToObjectMapper(ObjectMapper mapper) {
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, this.failOnUnknownProperties);
         mapper.configure(DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL, this.readUnknownEnumValuesAsNull);
         mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, this.failOnEmptyBeans);
-	}
-	
-	@Autowired
-	private void logging(){
-		
-		log.info("---------------------ObjectMapper Setting-----------------------");
-		log.info("DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES : " + this.failOnUnknownProperties);
-		log.info("DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL : " + this.readUnknownEnumValuesAsNull);
-		log.info("DeserializationFeature.FAIL_ON_EMPTY_BEANS : " + this.failOnEmptyBeans);
-		log.info("---------------------ObjectMapper Setting-----------------------\n");
-	}
+    }
+
+    @Autowired
+    private void logging() {
+
+        log.info("---------------------ObjectMapper Setting-----------------------");
+        log.info("DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES : " + this.failOnUnknownProperties);
+        log.info("DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL : " + this.readUnknownEnumValuesAsNull);
+        log.info("DeserializationFeature.FAIL_ON_EMPTY_BEANS : " + this.failOnEmptyBeans);
+        log.info("---------------------ObjectMapper Setting-----------------------\n");
+    }
 
 }
 

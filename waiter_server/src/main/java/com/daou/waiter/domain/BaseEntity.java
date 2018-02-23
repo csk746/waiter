@@ -6,7 +6,6 @@ import javax.persistence.*;
 import java.util.Date;
 
 
-
 @MappedSuperclass
 @ToString
 public abstract class BaseEntity {

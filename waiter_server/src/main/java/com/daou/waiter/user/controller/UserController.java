@@ -24,47 +24,47 @@ import com.daou.waiter.user.repository.UserRepository;
 
 import lombok.extern.slf4j.Slf4j;
 
-@RestController 
-@RequestMapping("/api/user") 
+@RestController
+@RequestMapping("/api/user")
 @Slf4j
-public class UserController { 
+public class UserController {
 
-	@Autowired 
-	AuthenticationManager authenticationManager; 
-	@Autowired 
-	UserRepository userRepository; 
-	@Autowired 
-	UserService userService ; 
+    @Autowired
+    AuthenticationManager authenticationManager;
+    @Autowired
+    UserRepository userRepository;
+    @Autowired
+    UserService userService;
 
-	@GetMapping(value = "/detail/{id}")
-	public User getUser(@PathVariable Long id){
-		return this.userService.getUser(id);
-	}
-		
-	@PostMapping(value = "/join")
-	public User joinUser(@RequestBody User user ){
-		return this.userService.saveUser(user, true);
-	}
+    @GetMapping(value = "/detail/{id}")
+    public User getUser(@PathVariable Long id) {
+        return this.userService.getUser(id);
+    }
+
+    @PostMapping(value = "/join")
+    public User joinUser(@RequestBody User user) {
+        return this.userService.saveUser(user, true);
+    }
 
 
-	@PostMapping(value = "/validation")
-	public boolean idValidation(@RequestBody User user ){
-		return this.userService.getUser(user.getLoginId()) == null;
-	}
+    @PostMapping(value = "/validation")
+    public boolean idValidation(@RequestBody User user) {
+        return this.userService.getUser(user.getLoginId()) == null;
+    }
 
-	@RequestMapping(value="/login", method=RequestMethod.POST) 
-	public AccountUserDetails login( @RequestBody User user,  HttpSession session ) {
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public AccountUserDetails login(@RequestBody User user, HttpSession session) {
 
-		log.info("login request user " + user.getLoginId() + "/" + user.getPassword());
+        log.info("login request user " + user.getLoginId() + "/" + user.getPassword());
 
-		UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(user.getLoginId(), user.getPassword()); 
-		Authentication authentication = authenticationManager.authenticate(token); 
-		SecurityContextHolder.getContext().setAuthentication(authentication); 
-		session.setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY, SecurityContextHolder.getContext()); 
+        UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(user.getLoginId(), user.getPassword());
+        Authentication authentication = authenticationManager.authenticate(token);
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        session.setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY, SecurityContextHolder.getContext());
 
-		AccountUserDetails accountUser = new AccountUserDetails(userRepository.findByLoginId(user.getLoginId()));
-		accountUser.setToken(session.getId());
+        AccountUserDetails accountUser = new AccountUserDetails(userRepository.findByLoginId(user.getLoginId()));
+        accountUser.setToken(session.getId());
 
-		return accountUser;
-	} 
+        return accountUser;
+    }
 }
