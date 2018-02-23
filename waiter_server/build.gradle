@@ -51,6 +51,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.apache.tomcat.embed:tomcat-embed-jasper')
 	runtime('org.postgresql:postgresql')
+	compile('org.json:json')
 	compile('org.projectlombok:lombok')
     compile('junit:junit:4.12')
     testCompile('org.springframework.boot:spring-boot-starter-test')
