@@ -1,13 +1,12 @@
 package com.daou.waiter.security.account;
 
-import java.util.Arrays;
-import java.util.Collection;
-
+import com.daou.waiter.user.domain.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.daou.waiter.user.domain.User;
+import java.util.Arrays;
+import java.util.Collection;
 
 
 public class AccountUserDetails implements UserDetails {

@@ -19,6 +19,15 @@ public enum AuthorityType {
         this.grade = grade;
     }
 
+    public static int getAllGradeBit() {
+        AuthorityType[] types = AuthorityType.values();
+        int bit = 0;
+        for (AuthorityType type : types) {
+            bit |= type.getBit();
+        }
+        return bit;
+    }
+
     public int getBit() {
         return 1 << (this.grade - 1);
     }
@@ -33,15 +42,6 @@ public enum AuthorityType {
 
     public boolean isHavedGrade(AccountUserDetails userDetail) {
         return this.isHavedGrade(userDetail.getUser());
-    }
-
-    public static int getAllGradeBit() {
-        AuthorityType[] types = AuthorityType.values();
-        int bit = 0;
-        for (AuthorityType type : types) {
-            bit |= type.getBit();
-        }
-        return bit;
     }
 
 }

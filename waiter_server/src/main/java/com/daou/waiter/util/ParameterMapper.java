@@ -1,17 +1,15 @@
 package com.daou.waiter.util;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.context.request.NativeWebRequest;
+
+import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.springframework.web.context.request.NativeWebRequest;
-
-import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class ParameterMapper {
@@ -20,11 +18,11 @@ public class ParameterMapper {
         return "set" + name.substring(0, 1).toUpperCase() + name.substring(1);
     }
 
-    public static Object RequestParamaterToObject(NativeWebRequest req, Class<?> c) {
-        return RequestParamaterToObject(req, c, "UTF-8");
+    public static Object requestParamaterToObject(NativeWebRequest req, Class<?> c) {
+        return requestParamaterToObject(req, c, "UTF-8");
     }
 
-    public static Object RequestParamaterToObject(NativeWebRequest req, Class<?> c, String charset) {
+    public static Object requestParamaterToObject(NativeWebRequest req, Class<?> c, String charset) {
 
         HttpServletRequest request = (HttpServletRequest) req.getNativeRequest();
 
@@ -35,9 +33,13 @@ public class ParameterMapper {
         String[] params = query.split("&");
 
         for (String param : params) {
-            if (param == null || param.indexOf("=") < 0) continue;
+            if (param == null || param.indexOf("=") < 0) {
+                continue;
+            }
             String pv[] = param.split("=");
-            if (pv.length != 2) continue;
+            if (pv.length != 2) {
+                continue;
+            }
 
             try {
                 map.put(pv[0], URLDecoder.decode(pv[1], charset));
@@ -48,15 +50,18 @@ public class ParameterMapper {
 
         }
 
-        return MapToObject(map, c);
+        return mapToObject(map, c);
 
     }
 
     public static Method findMethod(Class<?> c, String methodName) {
         for (Method m : c.getMethods()) {
-            //if ( !m.getName().equals(methodName)) continue ;
-            if (!m.getName().equalsIgnoreCase(methodName)) continue;
-            if (m.getParameterCount() != 1) continue;
+            if (!m.getName().equalsIgnoreCase(methodName)) {
+                continue;
+            }
+            if (m.getParameterCount() != 1) {
+                continue;
+            }
             return m;
         }
 
@@ -86,7 +91,7 @@ public class ParameterMapper {
         }
     }
 
-    public static Object MapToObject(Map<String, String> map, Class<?> c) {
+    public static Object mapToObject(Map<String, String> map, Class<?> c) {
 
         Method m = null;
         Object obj = null;
@@ -107,7 +112,9 @@ public class ParameterMapper {
                 continue;
             }
 
-            if (entry.getValue().equalsIgnoreCase("undefined")) continue;
+            if (entry.getValue().equalsIgnoreCase("undefined")) {
+                continue;
+            }
 
             try {
                 m = findMethod(c, getSetMethodName(entry.getKey()));

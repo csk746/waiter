@@ -3,20 +3,18 @@
  */
 package com.daou.waiter.interceptor;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import com.daou.waiter.security.SpringSecurityContext;
+import com.daou.waiter.security.authmap.AuthAPiMapUtil;
+import com.daou.waiter.user.domain.User;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.daou.waiter.security.SpringSecurityContext;
-import com.daou.waiter.security.authmap.AuthAPiMapUtil;
-import com.daou.waiter.user.domain.User;
-
-import lombok.extern.slf4j.Slf4j;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * Create by hsim on 2017. 9. 8.
@@ -55,25 +53,16 @@ public class SecurityInterceptor implements HandlerInterceptor {
         return true;
     }
 
-    /* (non-Javadoc)
-     * @see org.springframework.web.servlet.HandlerInterceptor#postHandle(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, java.lang.Object, org.springframework.web.servlet.ModelAndView)
-     */
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
                            ModelAndView modelAndView) throws Exception {
-        // TODO Auto-generated method stub
-
     }
 
-    /* (non-Javadoc)
-     * @see org.springframework.web.servlet.HandlerInterceptor#afterCompletion(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse, java.lang.Object, java.lang.Exception)
-     */
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
             throws Exception {
-        // TODO Auto-generated method stub
         if (ex != null) {
-            //this.mailSenderService.exceptionNoti(this.getHttpFullStr(request), ex);
+            log.info("exception : " + ex.getMessage());
         }
 
     }

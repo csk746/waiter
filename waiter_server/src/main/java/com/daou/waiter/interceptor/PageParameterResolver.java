@@ -1,6 +1,9 @@
 package com.daou.waiter.interceptor;
 
 
+import com.daou.waiter.model.PageModel;
+import com.daou.waiter.util.ParameterMapper;
+import com.daou.waiter.util.SortUtil;
 import org.springframework.core.MethodParameter;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -10,10 +13,6 @@ import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
-
-import com.daou.waiter.model.PageModel;
-import com.daou.waiter.util.ParameterMapper;
-import com.daou.waiter.util.SortUtil;
 
 @Component
 public class PageParameterResolver implements HandlerMethodArgumentResolver {

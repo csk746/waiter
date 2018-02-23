@@ -3,6 +3,7 @@
  */
 package com.daou.waiter.model;
 
+import com.daou.waiter.constants.Constants;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,8 +15,8 @@ import lombok.Setter;
 @Setter
 public class PageModel {
 
-    private int size = 15;
-    private int page = 0;
+    private int size = Constants.DEFAULT_LIST_SIZE;
+    private int page = Constants.DEFAULT_PAGE;
     private String field = "createdAt";
     private String order = "desc";
 

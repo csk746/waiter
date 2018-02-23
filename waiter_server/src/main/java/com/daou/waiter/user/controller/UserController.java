@@ -1,28 +1,19 @@
 package com.daou.waiter.user.controller;
 
-import javax.servlet.http.HttpSession;
-
+import com.daou.waiter.security.account.AccountUserDetails;
+import com.daou.waiter.user.domain.User;
+import com.daou.waiter.user.repository.UserRepository;
+import com.daou.waiter.user.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.daou.waiter.security.account.AccountUserDetails;
-import com.daou.waiter.user.Service.UserService;
-import com.daou.waiter.user.domain.User;
-import com.daou.waiter.user.repository.UserRepository;
-
-import lombok.extern.slf4j.Slf4j;
+import javax.servlet.http.HttpSession;
 
 @RestController
 @RequestMapping("/api/user")

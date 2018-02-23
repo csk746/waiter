@@ -4,7 +4,6 @@
 package com.daou.waiter.security.authmap;
 
 import com.daou.waiter.user.domain.AuthorityType;
-
 import lombok.Getter;
 
 /**

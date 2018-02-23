@@ -1,13 +1,12 @@
 package com.daou.waiter.security;
 
+import com.daou.waiter.security.account.AccountUserDetails;
+import com.daou.waiter.user.domain.User;
+import com.daou.waiter.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
-
-import com.daou.waiter.security.account.AccountUserDetails;
-import com.daou.waiter.user.Service.UserService;
-import com.daou.waiter.user.domain.User;
 
 @Component
 public class SpringSecurityContext extends SecurityContextHolder {

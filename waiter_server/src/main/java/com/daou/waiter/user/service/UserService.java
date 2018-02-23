@@ -1,8 +1,8 @@
-package com.daou.waiter.user.Service;
-
-import java.util.List;
+package com.daou.waiter.user.service;
 
 import com.daou.waiter.user.domain.User;
+
+import java.util.List;
 
 /**
  * Created by hsim on 2017. 8. 13...

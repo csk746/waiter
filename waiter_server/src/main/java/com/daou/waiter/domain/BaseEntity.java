@@ -82,4 +82,9 @@ public abstract class BaseEntity {
         }
         return true;
     }
+
+    @Override
+    public int hashCode() {
+        return this.id.hashCode();
+    }
 }

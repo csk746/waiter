@@ -3,14 +3,12 @@
  */
 package com.daou.waiter.security.authmap;
 
-import java.util.HashMap;
+import com.daou.waiter.user.domain.User;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
-
-import org.springframework.stereotype.Component;
-
-import com.daou.waiter.user.domain.User;
+import java.util.HashMap;
 
 /**
  * Create by hsim on 2018. 1. 26.
@@ -54,7 +52,9 @@ public class AuthAPiMapUtil {
         String uri = this.getUriString(req.getRequestURI());
 
         AuthApiMap map = this.apiMap.get(uri);
-        if (map != null) return map;
+        if (map != null) {
+            return map;
+        }
 
         String[] uris = uri.split("/");
 
@@ -78,7 +78,9 @@ public class AuthAPiMapUtil {
 
     public boolean isUserHavedAccessAuthValue(HttpServletRequest req, User user) {
         AuthApiMap map = this.getMappingAuthMap(req);
-        if (map == null) return true;
+        if (map == null) {
+            return true;
+        }
 
         return (map.getAccessType() & user.getGrade()) > 0;
     }
