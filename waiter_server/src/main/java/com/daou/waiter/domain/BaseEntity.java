@@ -6,7 +6,6 @@ import javax.persistence.*;
 import java.util.Date;
 
 
-
 @MappedSuperclass
 @ToString
 public abstract class BaseEntity {
@@ -82,5 +81,10 @@ public abstract class BaseEntity {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return this.id.hashCode();
     }
 }

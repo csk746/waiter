@@ -10,21 +10,28 @@ import java.util.List;
 @Getter
 @Setter
 public class SmsModel {
-    private String subject ;
-    private String content ;
+
+    private static final int MAX_SMS_SIZE = 140;
+
+    private String subject;
+    private String content;
 
     private List<ReceiverModel> receivers = new ArrayList<>();
     private List<String> contactGroupReceivers = new ArrayList<>();
 
     private String senderNumber = "1599-9460";
 
-    public void addReceiver(String name, String number){
+    public void addReceiver(String name, String number) {
         this.receivers.add(new ReceiverModel(name, number));
     }
 
-    public String getMessageType(){
-        if (content == null) return "SMS";
-        if(content.getBytes().length < 140) return "SMS";
+    public String getMessageType() {
+        if (content == null) {
+            return "SMS";
+        }
+        if (content.getBytes().length < MAX_SMS_SIZE) {
+            return "SMS";
+        }
         return "LMS";
     }
 }
