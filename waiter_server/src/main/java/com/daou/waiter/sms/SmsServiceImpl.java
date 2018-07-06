@@ -28,8 +28,8 @@ public class SmsServiceImpl implements SmsService {
 
     @Override
     public void smsSend(SmsModel smsModel) {
-        smsModel.setSubject("aaaa");
-        smsModel.setContent("bbbb");
+//        smsModel.setSubject("aaaa");
+//        smsModel.setContent("bbbb");
         smsModel.getMessageType();
         String body = null;
         System.out.println(this.loginUrl + "/api/user/session");

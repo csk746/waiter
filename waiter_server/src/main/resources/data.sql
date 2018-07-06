@@ -1,0 +1,1 @@
+INSERT INTO store (id,wait_ount) VALUES (1,0)
